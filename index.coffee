@@ -33,7 +33,15 @@ module.exports = (options) ->
               # gets replaced by
               #
               # dbg {...pepper...}, 'foo:', foo, 'bar:', bar
+              #
         stringify: JSON.stringify
+              #
+              # this lets you change the ouput format or enhance the info, 
+              # eg. instead of dumping the whole info dictionary you could 
+              # just prefix the logs with class name and method name like this: 
+              # 
+              # stringify: (i) -> '"' + i.class + i.type + i.method + ' ► "'
+              # 
         paprikaPrefix:  ''
         paprikaPostfix: ':'
     ,
