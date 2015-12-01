@@ -1,6 +1,6 @@
 {
     "name": "gulp-pepper",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "gulp plugin for spicing up coffee-script logs",
     "author": {
         "name": "monsterkodi",
@@ -38,8 +38,10 @@
         "log",
         "tool"
     ],
-    "maintainers": [{
-        "name": "monsterkodi",
-        "email": "monsterkodi@gmx.net"
-    }]
+    "maintainers": [
+        {
+            "name": "monsterkodi",
+            "email": "monsterkodi@gmx.net"
+        }
+    ]
 }
