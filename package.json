@@ -1,7 +1,7 @@
 {
     "name": "gulp-pepper",
     "version": "0.1.0",
-    "description": "gulp plugin that inserts info dictionaries",
+    "description": "gulp plugin for spicing up coffee-script logs",
     "author": {
         "name": "monsterkodi",
         "email": "monsterkodi@gmx.net"
@@ -32,9 +32,10 @@
     },
     "keywords": [
         "gulp",
-        "coffee-script",
-        "log",
         "parse",
+        "coffee-script",
+        "coffeescript",
+        "log",
         "tool"
     ],
     "maintainers": [{

@@ -15,12 +15,13 @@ module.exports = function(options) {
   var opts;
   opts = _.assign({
     pepper: ['log'],
-    paprika: ['dbg'],
+    paprika: {
+      'dbg': 'log'
+    },
     stringify: JSON.stringify,
     paprikaPrefix: '',
     paprikaPostfix: ':'
   }, options);
-  log(opts.stringify);
   return thru.obj(function(file, enc, cb) {
     var peppered;
     if (!file.isNull() && !file.isStream()) {
