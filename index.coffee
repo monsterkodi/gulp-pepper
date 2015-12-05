@@ -118,7 +118,7 @@ pepper = (f, s, options) ->
                         for i in [arglist.length-1..0]
                             arg = arglist[i]
                             if arg.match argreg
-                                arglist.splice i, 0, '"' + options.paprikaPrefix + arg + options.paprikaPostfix + '"'
+                                arglist.splice i, 0, options.paprikaPrefix + arg + options.paprikaPostfix
                         lines[li] = lines[li].replace(m[3], arglist.join(', '))
 
     lines.join '\n'
