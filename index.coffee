@@ -42,8 +42,8 @@ module.exports = (options) ->
               # 
               # stringify: (i) -> '"' + i.class + i.type + i.method + ' ► "'
               # 
-        paprikaPrefix:  ''
-        paprikaPostfix: ':'
+        paprikaPrefix:  '"'
+        paprikaPostfix: ':"'
     ,
         options
         
@@ -91,9 +91,10 @@ pepper = (f, s, options) ->
                     map = options.pepper
 
                 for key of map
-                    regexp = new RegExp('(^[^#]*\\s)(' + key + ')(\\s.*$)')
+                    regexp = new RegExp "(^\s*)(#{key})(\\s+[^ =]+.*$)"
                     if m = line.match(regexp)
                         lines[li] = line.replace regexp, "$1" + map[key] + " " + options.stringify(info) + ", $3"
+                        log lines[li]
 
             ###
             00000000    0000000   00000000   00000000   000  000   000   0000000 
@@ -104,14 +105,17 @@ pepper = (f, s, options) ->
             ###
 
             if options.paprika
+                                
                 if Array.isArray(options.paprika)
                     map = _.zipObject options.paprika, options.paprika
                 else
                     map = options.paprika
 
                 for key of map
-                    regexp = new RegExp('(^[^#]*\\s)(' + key + ')(\\s.*$)')
+                    regexp = new RegExp "(^\s*)(#{key})(\\s+[^ =]+.*$)"
+                    
                     if m = line.match(regexp)
+                        
                         lines[li] = line.replace regexp, "$1" + map[key] + " " + options.stringify(info) + ", $3"
                         arglist = (_.trim(a) for a in m[3].split(','))
                         argreg = new RegExp('^[^\\{\\[\\\'\\\"\\d]*$')
@@ -120,5 +124,6 @@ pepper = (f, s, options) ->
                             if arg.match argreg
                                 arglist.splice i, 0, options.paprikaPrefix + arg + options.paprikaPostfix
                         lines[li] = lines[li].replace(m[3], arglist.join(', '))
+
 
     lines.join '\n'
