@@ -92,7 +92,7 @@ pepper = (f, s, options) ->
                     map = options.pepper
 
                 for key of map
-                    regexp = new RegExp "(^\s*)(#{key})(\\s+[^ =]+.*$)"
+                    regexp = new RegExp "(^\\s*)(#{key})(\\s+[^ =]+.*$)"
                     if m = line.match(regexp)
                         lines[li] = line.replace regexp, "$1" + map[key] + " " + options.stringify(info) + ", $3"
 
@@ -112,7 +112,7 @@ pepper = (f, s, options) ->
                     map = options.paprika
 
                 for key of map
-                    regexp = new RegExp "(^\s*)(#{key})(\\s+[^ =]+.*$)"
+                    regexp = new RegExp "(^\\s*)(#{key})(\\s+[^ =]+.*$)"
                     
                     if m = line.match(regexp)
                         
