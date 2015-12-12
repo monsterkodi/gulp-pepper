@@ -20,6 +20,9 @@ module.exports = function(options) {
     },
     stringify: JSON.stringify,
     paprikaPrefix: '"',
+    paprikaInfix: function(s) {
+      return s;
+    },
     paprikaPostfix: ':"'
   }, options);
   return thru.obj(function(file, enc, cb) {
@@ -116,7 +119,7 @@ pepper = function(f, s, options) {
             for (i = k = ref1 = arglist.length - 1; ref1 <= 0 ? k <= 0 : k >= 0; i = ref1 <= 0 ? ++k : --k) {
               arg = arglist[i];
               if (arg.match(argreg)) {
-                arglist.splice(i, 0, options.paprikaPrefix + arg + options.paprikaPostfix);
+                arglist.splice(i, 0, options.paprikaPrefix + options.paprikaInfix(arg) + options.paprikaPostfix);
               }
             }
             lines[li] = lines[li].replace(m[3], arglist.join(', '));
