@@ -81,7 +81,6 @@ pepper = function(f, s, options) {
           regexp = new RegExp("(^\s*)(" + key + ")(\\s+[^ =]+.*$)");
           if (m = line.match(regexp)) {
             lines[li] = line.replace(regexp, "$1" + map[key] + " " + options.stringify(info) + ", $3");
-            log(lines[li]);
           }
         }
       }
